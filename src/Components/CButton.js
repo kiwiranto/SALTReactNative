@@ -7,34 +7,23 @@ import {
 import Ripple from 'react-native-material-ripple';
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 2,
-		flexDirection: 'column',
+	margin: {
+		marginTop: 40
 	},
 	button: {
-		backgroundColor: '#000',
-		paddingTop: 10,
-		paddingBottom: 10
-	},
-	buttonText: {
-		color: '#fff',
-		textAlign: 'center'
+		fontSize: 16,
+		textAlign: 'center',
+		color: '#fff'
 	}
-});
+})
 
 export default class CButton extends React.Component {
 
 	render() {
 		return (
-			<View style={{
-					...styles.container,
-					...this.props.styleContainer
-				}}> 
-
-				<Ripple style={{...styles.button}} rippleColor={'yellow'} rippleOpacity={1} rippleDuration={1000}>
-					<Text style={{...styles.buttonText}}>{this.props.title}</Text>
-				</Ripple>
-			</View>
+			<Ripple style={[this.props.buttonStyle, styles.margin]} rippleColor={'white'} rippleOpacity={1} rippleDuration={500} onPress={() => { this.props.onPress() }}>
+				<Text style={[styles.button]} >{this.props.title}</Text>
+			</Ripple>
 		);
 	}
 }

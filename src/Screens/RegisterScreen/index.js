@@ -5,7 +5,7 @@ import CTextInput from '../../Components/CTextInput';
 import { styleLogin } from './style';
 import { validateEmail } from '../../Helper/helper';
 
-export default class LoginScreen extends React.Component {
+export default class RegisterScreen extends React.Component {
 	state = {
 		isLoading: false,
 		username: '',

@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../Screens/HomeScreen';
 import LoginScreen from '../Screens/LoginScreen';
 import MovieList from '../Screens/MovieList';
+import RegisterScreen from '../Screens/RegisterScreen';
 
 const AppNavigator = createStackNavigator(
   {
@@ -18,9 +19,21 @@ const AppNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName : 'Login'
+    initialRouteName : 'Login',
+    headerMode : 'none'
   }
 );
+
+const LoginNavigator = createStackNavigator(
+  {
+    Login: {
+      screen: LoginScreen
+    },
+    Register: {
+      screen: RegisterScreen
+    }
+  }
+)
 
 const Navigator = createAppContainer(AppNavigator);
 
