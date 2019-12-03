@@ -19,8 +19,7 @@ const AppNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName : 'Login',
-    headerMode : 'none'
+    initialRouteName : 'Login'
   }
 );
 
@@ -32,6 +31,10 @@ const LoginNavigator = createStackNavigator(
     Register: {
       screen: RegisterScreen
     }
+  },
+  {
+    initialRouteName : 'Login',
+    headerMode : 'none'
   }
 )
 

@@ -24,11 +24,18 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import AppNavigator from './src/Navigator'
+import AppNavigator from './src/Navigator';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor, store } from './src/Config/Store';
 
 const App: () => React$Node = () => {
   return (
-    <AppNavigator />
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <AppNavigator />
+      </PersistGate>
+    </Provider>
   );
 };
 

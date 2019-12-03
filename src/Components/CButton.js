@@ -3,6 +3,7 @@ import {
 	View,
 	StyleSheet,
 	Text,
+	ActivityIndicator
 } from 'react-native';
 import Ripple from 'react-native-material-ripple';
 
@@ -21,9 +22,14 @@ export default class CButton extends React.Component {
 
 	render() {
 		return (
-			<Ripple style={[this.props.buttonStyle, styles.margin]} rippleColor={'white'} rippleOpacity={1} rippleDuration={500} onPress={() => { this.props.onPress() }}>
-				<Text style={[styles.button]} >{this.props.title}</Text>
-			</Ripple>
+			<View>
+				<Ripple style={[this.props.buttonStyle, styles.margin]} rippleColor={'white'} rippleOpacity={1} rippleDuration={500} onPress={() => { this.props.onPress() }} disabled={this.props.isLoading}>
+					{
+						this.props.isLoading ? <ActivityIndicator /> : <Text style={[styles.button]} >{this.props.title}</Text>
+					}
+				</Ripple>
+			</View>
+			
 		);
 	}
 }
