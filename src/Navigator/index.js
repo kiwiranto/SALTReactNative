@@ -1,16 +1,13 @@
 import React from 'react';
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../Screens/HomeScreen';
 import LoginScreen from '../Screens/LoginScreen';
 import MovieList from '../Screens/MovieList';
 import RegisterScreen from '../Screens/RegisterScreen';
 
-const AppNavigator = createStackNavigator(
+const HomeNavigator = createStackNavigator(
   {
-    Login: {
-      screen: LoginScreen
-    },
     Home: {
       screen: HomeScreen,
     },
@@ -19,7 +16,8 @@ const AppNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName : 'Login'
+    initialRouteName : 'Home',
+    headerMode : 'none'
   }
 );
 
@@ -38,6 +36,16 @@ const LoginNavigator = createStackNavigator(
   }
 )
 
-const Navigator = createAppContainer(AppNavigator);
+const MainNavigator = createSwitchNavigator(
+  {
+    LoginNav: LoginNavigator,
+    HomeNav: HomeNavigator
+  },
+  {
+    initialRouteName : 'LoginNav'
+  }
+);
+
+const Navigator = createAppContainer(MainNavigator);
 
 export default Navigator;
